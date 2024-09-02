@@ -23,12 +23,23 @@ int main(void)
 
 	Robert.beRepaired(7);
 
-
 	Jubileus.attack("Robert");
 
 	Jean.attack("Robert");
+	Robert.guardGate();
 	Robert.takeDamage(10);
 	Jean.highFivesGuys();
+
+	std::cout << "Use copy/ assignation operator" << std::endl;
+	ClapTrap Jubileus2 = Jubileus;
+	ScavTrap Robert2(Robert);
+	FragTrap Jean2(Jean);
+	DaimondTrap Daimond2 = Daimond;
+
+	Jubileus2.attack("Robert");
+	Robert2.guardGate();
+	Jean2.highFivesGuys();
+	Daimond2.whoAmI();
 
 	return 0;
 }
