@@ -8,12 +8,27 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
   this->_attackDamage = 20;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+  std::cout << "ScavTrap " << this->_name << " is created" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+{
+  this->_name = other._name;
+  this->_attackDamage = other._attackDamage;
+  this->_energyPoints = other._energyPoints;
+  this->_hitpoints = other._hitpoints;
+  std::cout << "ScavTrap " << this->_name << " is created" << std::endl;
+  return *this;
+}
+
 ScavTrap::~ScavTrap()
 {
   std::cout << "ScavTrap " << this->_name << " is destroyed" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string &target)
 {
   if (this->_hitpoints <= 0)
   {

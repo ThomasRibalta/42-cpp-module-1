@@ -1,5 +1,5 @@
 #ifndef DAIMONDTRAP_HPP
-# define DAIMONDTRAP_HPP
+#define DAIMONDTRAP_HPP
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
@@ -7,16 +7,18 @@
 
 class DaimondTrap : public FragTrap, public ScavTrap
 {
-  private:
-    std::string _name;
+private:
+  std::string _name;
 
-  public:
-    DaimondTrap(std::string name);
-    ~DaimondTrap();
+public:
+  DaimondTrap(std::string name);
+  ~DaimondTrap();
+  DaimondTrap(const DaimondTrap &other);
+  DaimondTrap &operator=(const DaimondTrap &other);
 
-    void whoAmI();
+  void whoAmI();
 
-    using ScavTrap::attack;
+  using ScavTrap::attack;
 };
 
 #endif

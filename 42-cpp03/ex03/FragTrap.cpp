@@ -8,6 +8,21 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
   std::cout << "FragTrap " << name << " is born!" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
+{
+  std::cout << "FragTrap " << this->_name << " is created" << std::endl;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &other)
+{
+  this->_name = other._name;
+  this->_attackDamage = other._attackDamage;
+  this->_energyPoints = other._energyPoints;
+  this->_hitpoints = other._hitpoints;
+  std::cout << "FragTrap " << this->_name << " is created" << std::endl;
+  return *this;
+}
+
 FragTrap::~FragTrap()
 {
   std::cout << "FragTrap " << this->_name << " is destroyed" << std::endl;

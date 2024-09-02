@@ -12,6 +12,22 @@ DaimondTrap::DaimondTrap(std::string name) : ClapTrap(name + "_clap_name"), Frag
   std::cout << "DaimondTrap constructor called" << std::endl;
 }
 
+DaimondTrap::DaimondTrap(const DaimondTrap &other) : ClapTrap(other), FragTrap(other), ScavTrap(other)
+{
+  *this = other;
+  std::cout << "DaimondTrap copy constructor called" << std::endl;
+}
+
+DaimondTrap &DaimondTrap::operator=(const DaimondTrap &other)
+{
+  this->_name = other._name;
+  this->_hitpoints = other._hitpoints;
+  this->_energyPoints = other._energyPoints;
+  this->_attackDamage = other._attackDamage;
+  std::cout << "DaimondTrap assignation operator called" << std::endl;
+  return *this;
+}
+
 DaimondTrap::~DaimondTrap()
 {
   std::cout << "DaimondTrap destructor called" << std::endl;
