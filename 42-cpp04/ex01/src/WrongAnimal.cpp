@@ -10,6 +10,18 @@ WrongAnimal::WrongAnimal(std::string type) : type(type)
   std::cout << "WrongAnimal of type " << type << " created." << std::endl;
 }
 
+WrongAnimal::WrongAnimal(const WrongAnimal &other) : type(other.type)
+{
+  std::cout << "WrongAnimal of type " << type << " created." << std::endl;
+}
+
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other)
+{
+  type = other.type;
+  std::cout << "WrongAnimal of type " << type << " created." << std::endl;
+  return *this;
+}
+
 WrongAnimal::~WrongAnimal()
 {
   std::cout << "WrongAnimal destroyed." << std::endl;

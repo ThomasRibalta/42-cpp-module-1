@@ -6,6 +6,21 @@ Cat::Cat() : Animal("Cat")
   std::cout << "Cat created." << std::endl;
 }
 
+Cat::Cat(const Cat &other) : Animal(other)
+{
+  this->brain = new Brain(*other.brain);
+  std::cout << "Cat created." << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &other)
+{
+  Animal::operator=(other);
+  delete this->brain;
+  this->brain = new Brain(*other.brain);
+  std::cout << "Cat created." << std::endl;
+  return *this;
+}
+
 Cat::~Cat()
 {
   delete this->brain;
